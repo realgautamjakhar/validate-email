@@ -6,13 +6,15 @@ import { useRef } from "react";
 function App() {
   const textInputRef = useRef();
   const [textErr, settextErr] = useState("");
+
   function handleTextInput(e) {
     let textInput = e.target.value;
     if (/^\d{10}$/.test(textInput)) {
       settextErr(""); // Valid Stop showing error
       textInputRef.current.style.borderColor = "revert";
       textInputRef.current.style.color = "revert";
-      textInputRef.current.maxLength = "10";
+      textInputRef.current.maxLength = "10"; //Setting a upper text character limit to 10 for 10 digits only
+      //(if anybody have 10 digits without any character will face some problem)
     } else if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(textInput)) {
       settextErr(""); // Valid Stop showing error
       textInputRef.current.style.borderColor = "revert";
@@ -44,8 +46,8 @@ function App() {
         </p>
         <input
           type="text"
-          name="email"
-          id="email"
+          name="textInput"
+          id="textInput"
           placeholder="Email or Mobile Number"
           onChange={(e) => handleTextInput(e)}
           ref={textInputRef}
