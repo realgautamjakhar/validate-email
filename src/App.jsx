@@ -41,7 +41,7 @@ function App() {
     <div className=" h-screen flex items-center justify-center flex-col">
       <form
         onSubmit={!textErr ? handleFormSubmit : handleInvalidSubmit}
-        className="flex flex-col w-[390px]"
+        className="flex flex-col max-w-[390px]"
       >
         <h1 className=" text-2xl font-bold ">Sign In to WisdomCircle</h1>
         <p className="mb-6">
