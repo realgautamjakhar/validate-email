@@ -29,14 +29,18 @@ function App() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    const { email, password } = e.currentTarget;
-    console.log(email.value, password.value);
+    const { textInput, password } = e.currentTarget;
+    console.log(textInput.value, password.value);
   }
 
+  function handleInvalidSubmit(e) {
+    console.log("Invalid Form Submited");
+    e.preventDefault(e);
+  }
   return (
     <div className=" h-screen flex items-center justify-center flex-col">
       <form
-        onSubmit={(e) => handleFormSubmit(e)}
+        onSubmit={!textErr ? handleFormSubmit : handleInvalidSubmit}
         className="flex flex-col w-[390px]"
       >
         <h1 className=" text-2xl font-bold ">Sign In to WisdomCircle</h1>
@@ -55,11 +59,10 @@ function App() {
         />
         <p className="error-message mb-4 text-red-400">{textErr}</p>
         <input
-          type="text"
+          type="password"
           name="password"
           id="password"
           placeholder="Password"
-          onChange={(e) => handleTextInput(e)}
           className="border-2 py-4 px-3 w-[390px] outline-none rounded mb-6"
         />
         <button
