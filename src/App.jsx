@@ -60,7 +60,7 @@ function App() {
           id="password"
           placeholder="Password"
           onChange={(e) => handleTextInput(e)}
-          className="border-2 py-4 px-3 w-[390px] rounded mb-6"
+          className="border-2 py-4 px-3 w-[390px] outline-none rounded mb-6"
         />
         <button
           type="submit"
